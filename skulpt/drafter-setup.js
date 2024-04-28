@@ -16,6 +16,8 @@ Sk.BottleSiteTarget = "#website";
 
 Sk.configure({ read: builtinRead, __future__: Sk.python3 });
 
+$.ajaxSetup({ cache: false });
+
 function startWebserver(pythonSite) {
     try {
         Sk.misceval
