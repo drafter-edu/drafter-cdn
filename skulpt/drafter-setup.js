@@ -1,3 +1,8 @@
+if (typeof Sk.environ == "undefined") {
+    Sk.environ = new Sk.builtin.dict();
+}
+Sk.environ.set$item(new Sk.builtin.str("DRAFTER_SKULPT"), Sk.builtin.bool.true$);
+
 function builtinRead(x) {
     if (
         Sk.builtinFiles === undefined ||
