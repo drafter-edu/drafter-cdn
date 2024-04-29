@@ -36,11 +36,20 @@ function startWebserver(pythonSite) {
 }
 
 $(document).ready(function() {
-  $.ajax({
-    type: "GET",
-    url: "website.py",
-    success: function(contents) {
-      startWebserver(contents);
+    if (document.querySelector("iframe")) {
+        let iframe = document.getElementsByTagName("iframe")[0];
+        console.log(iframe);
+        iframe.onload = ev => {
+            let code = iframe.contentWindow.document.querySelector("pre").textContent;
+            startWebserver(code);
+        };
+    } else {
+        $.ajax({
+            type: "GET",
+            url: "website.py",
+            success: function(contents) {
+                startWebserver(contents);
+            }
+        });    
     }
-  });
 });
