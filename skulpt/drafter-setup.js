@@ -38,9 +38,13 @@ function startWebserver(pythonSite) {
 }
 
 $(document).ready(function() {
-    if (document.querySelector("iframe")) {
+	if (
+        Sk.builtinFiles !== undefined &&
+        Sk.builtinFiles["files"]["main.py"] !== undefined
+    ) {
+		startWebserver(Sk.builtinFiles["files"]["main.py"]);
+    } else if (document.querySelector("iframe")) {
         let iframe = document.getElementsByTagName("iframe")[0];
-        console.log(iframe);
         iframe.onload = ev => {
             let code = iframe.contentWindow.document.querySelector("pre").textContent;
             startWebserver(code);
