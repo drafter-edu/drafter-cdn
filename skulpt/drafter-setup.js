@@ -16,6 +16,23 @@ Sk.BottleSiteTarget = "#website";
 
 Sk.configure({ read: builtinRead, __future__: Sk.python3 });
 
+Sk.console = {
+    printPILImage: function (img) {
+        document.body.append(img.image);
+    },
+    plot: function (chart) {
+        let container = document.createElement("div");
+        document.body.append(container);
+        return {"html": [container]};
+    },
+    getWidth: function() {
+        return 300;
+    },
+    getHeight: function() {
+        return 300;
+    }
+};
+
 $.ajaxSetup({ cache: false });
 
 function startWebserver(pythonSite) {
