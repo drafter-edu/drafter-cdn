@@ -46,13 +46,19 @@ function startWebserver(pythonSite) {
                     true
                 )
             )
-            .then((result) => console.log(result.$d));
+            .then((result) => console.log(result.$d))
+            .catch((err) => {
+                showError(e);
+            });
     } catch (e) {
-        console.error(e);
-        console.error(e.args.v[0].v);
-        alert(e);
-        document.body.innerHTML = "<div>There was an error running your site. Here is the error message:</div><pre>" + e.args.v[0].v + "</pre>";
+        showError(e);
     }
+}
+
+function showError(err) {
+    console.error(err);
+    console.error(err.args.v[0].v);
+    document.body.innerHTML = "<div>There was an error running your site. Here is the error message:</div><pre>" + err.args.v[0].v + "</pre>";
 }
 
 $(document).ready(function() {
