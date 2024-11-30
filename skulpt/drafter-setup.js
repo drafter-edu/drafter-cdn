@@ -51,6 +51,7 @@ function startWebserver(pythonSite) {
         console.error(e);
         console.error(e.args.v[0].v);
         alert(e);
+        document.body.innerHTML = "<div>There was an error running your site. Here is the error message:</div><pre>" + e.args.v[0].v + "</pre>";
     }
 }
 
