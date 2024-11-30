@@ -47,7 +47,7 @@ function startWebserver(pythonSite) {
                 )
             )
             .then((result) => console.log(result.$d))
-            .catch((err) => {
+            .catch((e) => {
                 showError(e);
             });
     } catch (e) {
