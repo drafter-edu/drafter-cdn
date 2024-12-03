@@ -38,9 +38,11 @@ Sk.console = {
 
 $.ajaxSetup({ cache: false });
 
+const preStyle = `background-color: #f0f0f0; padding: 4px; border: 1px solid lightgrey; margin: 0px`;
+
 function startWebserver(pythonSite) {
-    Sk.console.drafter.handleError = function (err) {
-        showError(err, MAIN_FILENAME+".py", pythonSite);
+    Sk.console.drafter.handleError = function (code, message) {
+        document.body.innerHTML = `<h1>Error Running Site!</h1><div>There was an error running your site. Here is the error message:</div><div><pre style="${preStyle}">${code}: ${message}</pre></div>`;
     };
     try {
         Sk.misceval
@@ -82,8 +84,6 @@ function presentRunError(error, filenameExecuted, code) {
         linesError.push(lineno);
     }*/
 }
-
-const preStyle = `background-color: #f0f0f0; padding: 4px; border: 1px solid lightgrey; margin: 0px`;
 
 function buildTraceback(error, filenameExecuted, code) {
     return error.traceback.map(frame => {
