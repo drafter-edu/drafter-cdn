@@ -18,6 +18,8 @@ Sk.BottleSiteTarget = "#website";
 
 Sk.configure({ read: builtinRead, __future__: Sk.python3 });
 
+Sk.inBrowser = false;
+
 Sk.console = {
     drafter: {},
     printPILImage: function (img) {
