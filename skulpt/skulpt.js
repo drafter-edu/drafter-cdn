@@ -26,7 +26,7 @@
       var Sk2 = {};
       Sk2.build = {
         githash: "3c96e405",
-        date: "2025-11-19T18:40:25.684Z"
+        date: "2025-12-01T05:17:45.353Z"
       };
       Sk2.global = typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};
       Sk2.exportSymbol = function(name, object) {
@@ -12092,7 +12092,7 @@
               return this.v.length;
             },
             sq$concat(other) {
-              if (!(other instanceof Sk.builtin.bytes) && !(other instanceof Sk.builtin.array)) {
+              if (!(other instanceof Sk.builtin.bytes)) {
                 throw new Sk.builtin.TypeError(
                   "can't concat " + Sk.abstr.typeName(other) + " to bytes"
                 );
@@ -12987,7 +12987,7 @@
               return this.v.length;
             },
             sq$concat(other) {
-              if (!(other instanceof Sk.builtin.bytes) && !(other instanceof Sk.builtin.array)) {
+              if (!(other instanceof Sk.builtin.bytes)) {
                 throw new Sk.builtin.TypeError(
                   "can't concat " + Sk.abstr.typeName(other) + " to bytearray"
                 );
