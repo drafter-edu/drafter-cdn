@@ -26,7 +26,7 @@
       var Sk2 = {};
       Sk2.build = {
         githash: "3c96e405",
-        date: "2025-12-01T05:17:45.353Z"
+        date: "2025-12-04T11:31:31.166Z"
       };
       Sk2.global = typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};
       Sk2.exportSymbol = function(name, object) {
@@ -18364,10 +18364,10 @@
         } else {
           if (Sk.inBrowser) {
             this.fileno = 10;
-            this.data$ = Sk.inBrowser(this.name);
+            this.data$ = Sk.inBrowser(this.name, mode.v);
           } else {
             this.fileno = 11;
-            this.data$ = Sk.read(name.v);
+            this.data$ = Sk.read(name.v, mode.v);
           }
           this.lineList = splitLines(this.data$, this.newline, Sk.inBrowser);
           this.currentLine = 0;
@@ -32834,6 +32834,7 @@
         EOFError: Sk.builtin.EOFError,
         MemoryError: Sk.builtin.MemoryError,
         ReferenceError: Sk.builtin.ReferenceError,
+        FileNotFoundError: Sk.builtin.FileNotFoundError,
         float_$rw$: Sk.builtin.float_,
         int_$rw$: Sk.builtin.int_,
         bool: Sk.builtin.bool,
